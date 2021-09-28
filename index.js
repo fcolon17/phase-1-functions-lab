@@ -11,8 +11,18 @@ function distanceTravelledInFeet(_block1, _block2) {
   return (_block2 - _block1) * 264;
 }
 function calculatesFarePrice(_start, _destination) {
-  if (_destination - _start >= 8) return 25;
-  if (_destination - _start <= -2) return 2.56;
-  if (_destination <= 24) return "cannot travel that far";
-  return _start + 1 - _destination;
+  let distance = distanceTravelledInFeet(_start, _destination);
+  if (distance <= 400) {
+    return 0;
+  } else if (distance > 400 && distance < 2000) {
+    return 2.56;
+  } else if (distance > 2000 && distance < 2500) {
+    return 25;
+  } else {
+    return "cannot travel that far";
+  }
+  // if (_destination - _start >= 8) return 25;
+  // if (_destination - _start <= -2) return 2.56;
+  // if (_destination <= 24) return "cannot travel that far";
+  // return _start + 1 - _destination;
 }
